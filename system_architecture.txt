@@ -1,10 +1,32 @@
-task received
-planner generates plan
-coder writes code
-cleaner removes formatting
-tester generates tests
-executor runs tests
-debugger fixes code if needed
-retry loop
-logger records everything
+User Task
+   ↓
+Planner Agent
+   ↓
+Coder Agent
+   ↓
+Cleaner
+   ↓
+Tester
+   ↓
+Executor
+   ↓
+   ┌───────────────┐
+   │   Success?    │
+   └──────┬────────┘
+          │
+  YES---  │  
+   |      │
+  END     NO
+          ↓
+      Debugger Agent
+          ↓
+       Cleaner
+          ↓
+       Executor
+          ↓
+        (Loop)
+ 
+ Side Components:
+- Logger (tracks everything)
+- Memory (stores past attempts)
 
